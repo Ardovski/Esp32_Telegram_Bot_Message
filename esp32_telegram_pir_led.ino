@@ -41,7 +41,7 @@ void setup() {
   }
   Serial.println("\nWiFi bağlı!");
 
-  //sendToBot(botToken1, chatID1, "ESP32 bağlandı! (Bot 1)");
+  sendToBot(botToken1, chatID1, "ESP32 bağlandı! (Bot 1)");
   sendToBot(botToken2, chatID2, "ESP32 bağlandı! (Bot 2)");
 }
 
@@ -57,7 +57,7 @@ void loop() {
     // Hareket algılandı
     digitalWrite(ledPin, HIGH); // LED yak
     if (sendEnabled) {
-      //sendToBot(botToken1, chatID1, "Hareket algılandı! (Bot 1)");
+      sendToBot(botToken1, chatID1, "Hareket algılandı! (Bot 1)");
       sendToBot(botToken2, chatID2, "Hareket algılandı! (Bot 2)");
     }
   } else if (pirState == LOW) {
@@ -97,12 +97,12 @@ void checkCommands(String token, long &lastUpdateId) {
 
         if (text == "stop") {
           sendEnabled = false;
-          //sendToBot(botToken1, chatID1, "Mesaj gönderimi durduruldu! (Bot 1)");
+          sendToBot(botToken1, chatID1, "Mesaj gönderimi durduruldu! (Bot 1)");
           sendToBot(botToken2, chatID2, "Mesaj gönderimi durduruldu! (Bot 2)");
         }
         if (text == "start") {
           sendEnabled = true;
-          //sendToBot(botToken1, chatID1, "Mesaj gönderimi başlatıldı! (Bot 1)");
+          sendToBot(botToken1, chatID1, "Mesaj gönderimi başlatıldı! (Bot 1)");
           sendToBot(botToken2, chatID2, "Mesaj gönderimi başlatıldı! (Bot 2)");
         }
       }
